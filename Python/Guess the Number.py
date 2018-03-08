@@ -15,7 +15,7 @@ while countDown < 6:
     numberGuessed = int (numberGuessed) #Convert into int
 
     if number == numberGuessed:
-        break;
+        break; #End while statement if guessed number is matched to number
     
     if number > numberGuessed:
         print 'Your guess is too low.'
@@ -27,5 +27,5 @@ if numberGuessed == number:
         countDown = str(countDown) #Convert into string
         print 'Good job, ' + name + '! ' + 'You guessed my number in ' + countDown +' ' + 'guesses!'
 if numberGuessed != number:
-    number = str(number)
+    number = str(number) #Convert into string
     print 'Nope. The number I was thinking of was ' + number
