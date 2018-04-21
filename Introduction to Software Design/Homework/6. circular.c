@@ -35,8 +35,11 @@ int main()
 		printf("%s\n", str);
 	} */
 	
+	// Print current string
 	printf("%s\n", str);
 
+	
+	// Circular process execute and print string as circular process happens each time
 	for (i = 0; length-1 > i; i++)
 	{
 		temp = str[length - 1];
