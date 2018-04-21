@@ -31,30 +31,37 @@ int main()
 	int push;
 	int index = 0;
 	int i;
-
+	
+	// Run program until insert is 0
 	while (insert != 0)
 	{
+		// Insert switch number
 		scanf("%d", &insert);
 		switch (insert)
 		{
+		//End program
 		case 0:
 			break;
+		// Push the stack
 		case 1:
 			scanf("%d", &push);
 			stack.stack[index] = push;
 			index++;
 			break;
+		// Pull the stack
 		case 2:
 			stack.stack[index - 1] = NULL;
 			index--;
 			if (index <= 0)
 				index = 0;
 			break;
+		// If switch number is not between 0 to 2 in integer
 		default:
 			printf("Insert between 0 to 2\n");
 		}
 	}
 
+	// Print the rest of results; size of array, and rest of array
 	printf("%d\n", index);
 	printf("%d\n", stack.stack[index - 1]);
 	for (i = index; 0 < i; i--)
