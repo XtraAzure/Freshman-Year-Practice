@@ -7,6 +7,7 @@
 
 char g_screen[MAX_Y][MAX_X];
 
+//Storing stars permanently in array
 int xStorage[MAX_X];
 int yStorage[MAX_Y];
 int xmax = 0;
@@ -21,8 +22,8 @@ int storage = 0;
 bool DrawPoint(int x, int y) {
 	char dot = '.';
 	char star = '*';
-	char temp1, temp2;
 
+	// Use only maximum x and y-coordinate number in array
 	if (xmax < x)
 	{
 		xmax = x;
@@ -32,12 +33,15 @@ bool DrawPoint(int x, int y) {
 		ymax = y;
 	}
 
+	// Check if x-coordinate and y-coordinate is equal or greater than 0
 	if (x >= 0 && y >= 0)
 	{
+		// Store and keep track of stars in array
 		xStorage[storage] = x;
 		yStorage[storage] = y;
 		storage++;
 
+		// Make all array into dots
 		for (int i = 0; ymax >= i; i++)
 		{
 			for (int n = 0; xmax >= n; n++)
@@ -46,13 +50,15 @@ bool DrawPoint(int x, int y) {
 			}
 		}
 
-		//g_screen[y][x] = star;
+		// Mark stars where its coordinated from past and present
 		for (int i = 0; storage > i; i++)
 		{
 			//temp1 = xStorage[i];
 			//temp2 = yStorage[i];
 			g_screen[yStorage[i]][xStorage[i]] = star;
 		}
+		
+		// Print the array[y][x] 
 		for (int i = 0; ymax >= i; i++)
 		{
 			for (int n = 0; xmax >= n; n++)
@@ -61,10 +67,12 @@ bool DrawPoint(int x, int y) {
 			}
 			printf("\n");
 		}
+		
+		// Return true to continue to draw point at array
 		return true;
 	}
 
-	// When one of coordinate has negative value
+	// When one of coordinate has negative value, return false and execute program
 	else
 	{
 		return false;
@@ -73,8 +81,10 @@ bool DrawPoint(int x, int y) {
 	
 }
 int main() {
+	
 	int x;
 	int y;
+	
 	while (true) {
 		/* input of 2 integers from users to represent a point */
 		scanf("%d %d", &x, &y);
